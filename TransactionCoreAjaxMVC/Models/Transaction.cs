@@ -21,5 +21,6 @@ namespace TransactionCoreAjaxMVC.Models
         public string SWIFTCode { get; set; }
         [Column(TypeName = "nvarchar(12)")]
         public int Amount { get; set; }
+        public DateTime DateCreated { get; set; }
     }
 }
