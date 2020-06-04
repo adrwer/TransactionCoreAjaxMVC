@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using TransactionCoreAjaxMVC.Helpers;
 using TransactionCoreAjaxMVC.Models;
+using static TransactionCoreAjaxMVC.Helpers.AttributesHelper;
 
 namespace TransactionCoreAjaxMVC.Controllers
 {
@@ -27,6 +28,7 @@ namespace TransactionCoreAjaxMVC.Controllers
 
         // GET: Transactions/AddOrEdit
         // GET: Transactions/AddOrEdit/1
+        [NoDirectAccess]
         public async Task<IActionResult> AddOrEdit(int id=0)
         {
             if (id == 0)
