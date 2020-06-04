@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TransactionCoreAjaxMVC.Models;
 
 namespace TransactionCoreAjaxMVC.Migrations
 {
     [DbContext(typeof(TransactionDbContext))]
-    partial class TransactionDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200603233451_ModifiedAmountColumn")]
+    partial class ModifiedAmountColumn
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,14 +23,13 @@ namespace TransactionCoreAjaxMVC.Migrations
 
             modelBuilder.Entity("TransactionCoreAjaxMVC.Models.Transaction", b =>
                 {
-                    b.Property<int>("TransactionId")
+                    b.Property<int>("TransctionId")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("AccountNumber")
                         .IsRequired()
-                        .HasColumnType("nvarchar(12)")
-                        .HasMaxLength(12);
+                        .HasColumnType("nvarchar(12)");
 
                     b.Property<int>("Amount");
 
@@ -44,10 +45,9 @@ namespace TransactionCoreAjaxMVC.Migrations
 
                     b.Property<string>("SWIFTCode")
                         .IsRequired()
-                        .HasColumnType("nvarchar(11)")
-                        .HasMaxLength(11);
+                        .HasColumnType("nvarchar(11)");
 
-                    b.HasKey("TransactionId");
+                    b.HasKey("TransctionId");
 
                     b.ToTable("Transactions");
                 });

@@ -7,45 +7,6 @@
 <h1 class="text-center">Transaction History</h1>
 
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.AccountNumber)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.BeneficiaryName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DateCreated)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Amount)
-            </th>
-            <th><a onclick="showInPopup('@Url.Action("AddOrEdit", "Transactions", null, Context.Request.Scheme)','New Transaction')" class="btn btn-success text-white">New Transaction</a></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.AccountNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BeneficiaryName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateCreated)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Amount)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.TransctionId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.TransctionId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.TransctionId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div id="view-all">
+    @await Html.PartialAsync("_ViewAll", Model)
+</div>
